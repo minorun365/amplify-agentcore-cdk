@@ -3,9 +3,10 @@ import { useState, useRef, useEffect, type FormEvent } from 'react';
 import { fetchAuthSession } from 'aws-amplify/auth';
 import ReactMarkdown from 'react-markdown';
 import './App.css';
+import outputs from '../amplify_outputs.json';
 
-// 環境変数から設定を取得
-const AGENT_ARN = import.meta.env.VITE_AGENT_ARN;
+// Amplify outputs から設定を取得
+const AGENT_ARN = outputs.custom?.agentRuntimeArn;
 
 // チャットメッセージの型定義
 interface Message {
