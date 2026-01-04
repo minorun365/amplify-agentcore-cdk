@@ -122,7 +122,7 @@ function App() {
     setLoading(false);
   };
 
-  // チャットUI
+  // チャットUI（ヘッダー＋チャットエリア＋入力フォーム）
   return (
     <div className="container">
       <header className="header">
