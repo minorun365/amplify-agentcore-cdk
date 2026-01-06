@@ -7,7 +7,7 @@ const backend = defineBackend({
   auth,
 });
 
-// AgentCore用のCDKスタックを作成
+// AgentCore（Amplify標準外）用のCDKスタックを作成
 const agentCoreStack = backend.createStack('AgentCoreStack');
 
 // AgentCoreランタイムのリソースを作成
