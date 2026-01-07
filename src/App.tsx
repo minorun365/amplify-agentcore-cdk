@@ -142,7 +142,7 @@ function App() {
                 {msg.isToolUsing && (
                   <span className={`tool-status ${msg.toolCompleted ? 'completed' : 'active'}`}>
                     {msg.toolCompleted ? '✓' : '⏳'} {msg.toolName}
-                    {msg.toolCompleted ? 'ツールを利用しました' : 'を利用中...'}
+                    {msg.toolCompleted ? 'ツールを利用しました' : 'ツールを利用中...'}
                   </span>
                 )}
                 {msg.content && !msg.isToolUsing && <ReactMarkdown>{msg.content}</ReactMarkdown>}
