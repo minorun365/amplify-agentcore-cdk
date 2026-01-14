@@ -19,9 +19,14 @@ export function createAgentCoreRuntime(
     platform: Platform.LINUX_ARM64,
   });
 
+  // スタック名から環境識別子を抽出（英数字とアンダースコアのみ許可）
+  const stackNameParts = stack.stackName.split('-');
+  const rawEnvId = stackNameParts.length >= 4 ? stackNameParts[3] : stack.stackName.slice(-10);
+  const envId = rawEnvId.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+
   // AgentCoreランタイムを作成（L2コンストラクト利用）
   const runtime = new agentcore.Runtime(stack, 'UpdateCheckerRuntime', {
-    runtimeName: `update_checker_${stack.stackName.split('-')[2]}`,
+    runtimeName: `update_checker_${envId}`,
     agentRuntimeArtifact: agentcore.AgentRuntimeArtifact.fromEcrRepository(
       agentImage.repository,
       agentImage.imageTag
